@@ -1,3 +1,72 @@
 body {
   background-color: black;
 }
+.screen {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+}
+
+img {
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  padding: 10px;
+}
+
+h2 {
+  color: aliceblue;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 50px;
+  padding: 20px;
+  margin: 0;
+}
+.zone {
+  /* css grid generator */
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.wall {
+  border: 3px solid blue;
+  background-color: black;
+  height: 32px;
+  aspect-ratio: 1/1;
+}
+
+.feed {
+  height: 32px;
+  aspect-ratio: 1/1;
+  border: 3px solid black;
+  /* im too lazy to do this now but replace image w just color white and adjust the size*/
+  background-image: url('Images/pacFeed.png');
+  background-size: 30%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.pac {
+  background-image: url("Images/pacman.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+
+}
+
+.pacUp{
+  background-image: url("Images/pacman_up.png");
+}
+.pacDown{
+  background-image: url("Images/pacman_down.png");
+}
+
+.pacLeft{
+  background-image: url("Images/pacman_left.png");
+}

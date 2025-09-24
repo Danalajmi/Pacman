@@ -6,20 +6,21 @@
 The game starts at user request and automatically starts moving at pointed direction until blocked or instructed otherwise by user input (keyboard arrows)
 
 ### Credits
--
+  [Logo - Text Studio](https://www.textstudio.com/)
+
 
 ### pseudocode
 ```
-board array - contains symbol indicators for walls, pac feed, empty squares, monsters
-  eg. 10x10 (implementing larger scale)
+board array 20x20 - contains symbol indicators for walls, pac feed, empty squares, monsters
+
 
 for every element in the array check the symbol and assign appropriate class
 
 assign pac to an index of the board array, Pac is displayed via a class
 
 pac movements:
-  up arrow pac index -10
-  down arrow pac index +10
+  up arrow pac index -20
+  down arrow pac index +20
   right arrow pac index +1
   left arrow pac index -1
 
