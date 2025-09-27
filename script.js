@@ -1,55 +1,55 @@
 // board array
 //Tiled
-board = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-            2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-            2, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2,
-            2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2, 0, 0, 2,
-            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2,
-            2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 2,
-            0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-            2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 0, 2,
-            2, 0, 0, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 2,
-            2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-            2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 2, 0, 2, 0, 2,
-            2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2,
-            2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2,
-            2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0,
-            2, 0, 2, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 2, 2, 2, 2,
-            2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
-            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2,
-            2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2,
-            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+board = [
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0,
+  0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0,
+  0, 0, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0,
+  0, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0, 0, 0, 2, 0, 0, 2,
+  2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
+  2, 2, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0,
+  2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2,
+  0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2, 2, 0, 2, 0,
+  0, 2, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0,
+  0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 0, 0,
+  2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+]
 
 // wall is 2
 // empty is 0
 
-let score = document.body.querySelector("h2")
 
+let score = document.body.querySelector("#scoreNum")
+
+let isWall
+
+// pac at game start
+let pacIndex = 140
+let newIndex
+let pinkyIndex = 95
 
 // an array for the new divs
 const squares = []
 
-  board.forEach(element => {
-    // create divs
+board.forEach((element) => {
+  // create divs
   const pixel = document.createElement("div")
   // divs into parent div (zone)
-  document.querySelector('.zone').appendChild(pixel)
-  if(element){
+  document.querySelector(".zone").appendChild(pixel)
+  if (element === 2) {
     pixel.classList.add("wall")
-  }else {
+  } else if (element === 0) {
     pixel.classList.add("feed")
   }
 
   squares.push(pixel)
+})
 
-});
-
-// pac at game start
-let pacIndex = 140
-
-let pacPosition = squares[pacIndex].classList.add("pac")
-
+squares[pacIndex].classList.add("pac")
 
 // geeks for geeks https://www.geeksforgeeks.org/javascript/javascript-detecting-the-pressed-arrow-key/
 
@@ -58,42 +58,107 @@ document.addEventListener("keydown", (keyPress) => {
 
   switch (key) {
     case "ArrowDown":
-      newIndex = pacIndex + 20
-      squares[newIndex].classList.add("pacDown")
+      moveDown()
       break
 
     case "ArrowUp":
-      newIndex = pacIndex - 20
-      squares[newIndex].classList.add("pacUp")
-        break
+      moveUp()
+      break
 
     case "ArrowRight":
-    newIndex = pacIndex + 1
-    squares[newIndex].classList.add("pac")
-        break
+      moveRight()
+      break
 
     case "ArrowLeft":
-    newIndex = pacIndex - 1
+      moveLeft()
+      break
+  }
+
+  // pac wins at 300
+  if (newIndex == 300) {
+    alert("You won!")
+  }
+})
+
+const pacMove = () => {
+  if (squares[newIndex].classList.contains("wall")) {
+    isWall = true
+
+    return
+  } else {
+    isWall = false
+    if (squares[pacIndex].classList.contains("feed")) {
+      scoreAdd()
+    }
+    squares[pacIndex].classList.remove("feed","pac","pacLeft","pacDown","pacUp")
+    pacIndex = newIndex
+    squareClass = squares[pacIndex].classList
+
+    return
+  }
+}
+
+const scoreAdd = () => {
+  score.innerText = Number(score.innerText) + 10
+}
+
+let squareClass = squares[pacIndex].classList
+
+squares[140].classList.add("hi")
+
+const autoMove = () => {
+  console.log(squareClass.contains("pac"))
+  switch (true) {
+    case squareClass.contains("pacDown"):
+      moveDown()
+      break
+    case squareClass.contains("pac"):
+      console.log("here")
+      moveRight()
+      break
+    case squareClass.contains("pacLeft"):
+      moveLeft()
+      break
+    case squareClass.contains("pacUp"):
+      moveUp()
+      break
+  }
+}
+setInterval(autoMove, 300)
+
+
+
+const moveUp = () => {
+  newIndex = pacIndex - 20
+  pacMove()
+  if (!isWall) {
+    squares[newIndex].classList.add("pacUp")
+  }
+}
+
+const moveRight = () => {
+  newIndex = pacIndex + 1
+  pacMove()
+  if (!isWall) {
+    squares[newIndex].classList.add("pac")
+  }
+}
+
+const moveLeft = () => {
+  newIndex = pacIndex - 1
+  pacMove()
+  if (!isWall) {
     squares[newIndex].classList.add("pacLeft")
-        break
   }
-      if (squares[newIndex].classList.contains("wall")) {
-        return
-      } else {
+}
 
-        squares[pacIndex].classList.remove("feed")
-        squares[pacIndex].classList.remove("pac")
-        squares[pacIndex].classList.remove("pacLeft")
-        squares[pacIndex].classList.remove("pacDown")
-        squares[pacIndex].classList.remove("pacUp")
-        pacPosition = squares[newIndex].classList.add("pac")
-        return (pacIndex = newIndex)
-
-      }
+const moveDown = () => {
+  newIndex = pacIndex + 20
+  pacMove()
+  if (!isWall) {
+    squares[newIndex].classList.add("pacDown")
   }
-)
+}
 
-
-
-// pac wins at 297
+let heresPinky = squares[pinkyIndex].classList.add("pinky")
 

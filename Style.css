@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  /* overflow: hidden; */
 }
 .screen {
   display: flex;
@@ -12,6 +13,11 @@ img {
   height: auto;
   object-fit: contain;
   padding: 10px;
+}
+.scoreWindow{
+  display: flex;
+
+
 }
 
 h2 {
@@ -62,11 +68,28 @@ h2 {
 
 .pacUp{
   background-image: url("Images/pacman_up.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
 }
 .pacDown{
   background-image: url("Images/pacman_down.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
 }
 
 .pacLeft{
   background-image: url("Images/pacman_left.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
+
+
+.pinky{
+  background-image: url("Images/pinky.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
 }
