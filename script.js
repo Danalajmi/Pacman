@@ -22,15 +22,15 @@ board = [
 // wall is 2
 // empty is 0
 
-
 let score = document.body.querySelector("#scoreNum")
 
 let isWall
-
+let pacsMove = true
 // pac at game start
 let pacIndex = 140
 let newIndex
 let pinkyIndex = 95
+let pinkyNew
 
 // an array for the new divs
 const squares = []
@@ -49,7 +49,9 @@ board.forEach((element) => {
   squares.push(pixel)
 })
 
+// pac and pinky initial
 squares[pacIndex].classList.add("pac")
+squares[pinkyIndex].classList.add("pinky")
 
 // geeks for geeks https://www.geeksforgeeks.org/javascript/javascript-detecting-the-pressed-arrow-key/
 
@@ -75,22 +77,45 @@ document.addEventListener("keydown", (keyPress) => {
   }
 
   // pac wins at 300
-  if (newIndex == 300) {
-    alert("You won!")
+  if (newIndex == 299) {
+    console.log("You won!")
   }
 })
 
-const pacMove = () => {
-  if (squares[newIndex].classList.contains("wall")) {
-    isWall = true
+const checkWall = (whoCalled) => {
+  switch (whoCalled) {
+    case "pac":
+      if (squares[newIndex].classList.contains("wall")) {
+        isWall = true
+        return
+      } else {
+        isWall = false
+      }
+      break
 
-    return
-  } else {
-    isWall = false
+    case "pinky":
+      if (squares[pinkyNew].classList.contains("wall")) {
+        isWall = true
+        return
+      } else {
+        isWall = false
+      }
+  }
+}
+
+const pacMove = () => {
+  checkWall("pac")
+  if (!isWall) {
     if (squares[pacIndex].classList.contains("feed")) {
       scoreAdd()
     }
-    squares[pacIndex].classList.remove("feed","pac","pacLeft","pacDown","pacUp")
+    squares[pacIndex].classList.remove(
+      "feed",
+      "pac",
+      "pacLeft",
+      "pacDown",
+      "pacUp"
+    )
     pacIndex = newIndex
     squareClass = squares[pacIndex].classList
 
@@ -107,13 +132,11 @@ let squareClass = squares[pacIndex].classList
 squares[140].classList.add("hi")
 
 const autoMove = () => {
-  console.log(squareClass.contains("pac"))
   switch (true) {
     case squareClass.contains("pacDown"):
       moveDown()
       break
     case squareClass.contains("pac"):
-      console.log("here")
       moveRight()
       break
     case squareClass.contains("pacLeft"):
@@ -125,8 +148,6 @@ const autoMove = () => {
   }
 }
 setInterval(autoMove, 300)
-
-
 
 const moveUp = () => {
   newIndex = pacIndex - 20
@@ -160,5 +181,45 @@ const moveDown = () => {
   }
 }
 
-let heresPinky = squares[pinkyIndex].classList.add("pinky")
+//ghosts
 
+const pinkyUp = () => {
+  pinkyNew = pinkyIndex - 20
+  checkWall("pinky")
+  if (!isWall) {
+    squares[pinkyNew].classList.add("pinky")
+    squares[pinkyIndex].classList.remove("pinky")
+    pinkyIndex = pinkyNew
+  }
+}
+const pinkyDown = () => {
+  pinkyNew = pinkyIndex + 20
+  checkWall("pinky")
+  if (!isWall) {
+    squares[pinkyNew].classList.add("pinky")
+    squares[pinkyIndex].classList.remove("pinky")
+    pinkyIndex = pinkyNew
+  }
+}
+const pinkyRight = () => {
+  pinkyNew = pinkyIndex + 1
+  checkWall("pinky")
+  if (!isWall) {
+    squares[pinkyNew].classList.add("pinky")
+    squares[pinkyIndex].classList.remove("pinky")
+    pinkyIndex = pinkyNew
+  }
+}
+const pinkyLeft = () => {
+  pinkyNew = pinkyIndex - 1
+  checkWall("pinky")
+  if (!isWall) {
+    squares[pinkyNew].classList.add("pinky")
+    squares[pinkyIndex].classList.remove("pinky")
+    pinkyIndex = pinkyNew
+  }
+}
+
+
+
+setInterval(pinkyLeft, 500)
