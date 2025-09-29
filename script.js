@@ -31,6 +31,8 @@ let pacIndex = 140
 let newIndex
 let pinkyIndex = 95
 let pinkyNew
+let alive = true
+let winStatement = document.body.querySelector(".winLoss")
 
 // an array for the new divs
 const squares = []
@@ -40,9 +42,9 @@ board.forEach((element) => {
   const pixel = document.createElement("div")
   // divs into parent div (zone)
   document.querySelector(".zone").appendChild(pixel)
-  if (element === 2) {
+  if (element) {
     pixel.classList.add("wall")
-  } else if (element === 0) {
+  } else  {
     pixel.classList.add("feed")
   }
 
@@ -104,7 +106,8 @@ const checkWall = (whoCalled) => {
 }
 
 const pacMove = () => {
-  checkWall("pac")
+
+    checkWall("pac")
   if (!isWall) {
     if (squares[pacIndex].classList.contains("feed")) {
       scoreAdd()
@@ -120,8 +123,11 @@ const pacMove = () => {
     squareClass = squares[pacIndex].classList
 
     return
+
   }
-}
+  }
+
+
 
 const scoreAdd = () => {
   score.innerText = Number(score.innerText) + 10
@@ -132,7 +138,14 @@ let squareClass = squares[pacIndex].classList
 squares[140].classList.add("hi")
 
 const autoMove = () => {
-  switch (true) {
+
+  if (squareClass.contains("pinky")){
+      alive = false
+      winStatement.style.visibility = "visible"
+    }
+
+    if(alive){
+      switch (true) {
     case squareClass.contains("pacDown"):
       moveDown()
       break
@@ -146,8 +159,17 @@ const autoMove = () => {
       moveUp()
       break
   }
+    }
+
+  if (!alive){
+  clearInterval(pacAuto)
+
 }
-setInterval(autoMove, 300)
+
+}
+
+
+
 
 const moveUp = () => {
   newIndex = pacIndex - 20
@@ -217,8 +239,21 @@ const pinkyLeft = () => {
     squares[pinkyNew].classList.add("pinky")
     squares[pinkyIndex].classList.remove("pinky")
     pinkyIndex = pinkyNew
+
   }
 }
+
+const pinkyMove = () => {
+  let movement = Math.random()
+  console.log(movement)
+}
+pinkyMove()
+
+
+
+
+// Game movements
+let pacAuto = setInterval(autoMove, 300)
 
 
 

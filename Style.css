@@ -6,6 +6,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 100px;
+
 }
 
 img {
@@ -16,8 +17,7 @@ img {
 }
 .scoreWindow{
   display: flex;
-
-
+  align-items: top;
 }
 
 h2 {
@@ -92,4 +92,8 @@ h2 {
   background-repeat: no-repeat;
   background-size: 70%;
   background-position: center;
+}
+
+.winLoss{
+  visibility: hidden;
 }
