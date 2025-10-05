@@ -31,6 +31,8 @@ let pacIndex = 140
 let newIndex
 let pinkyIndex = 95
 let pinkyNew
+let blinkyIndex = 311
+let blinkyNew
 let alive = true
 let winStatement = document.body.querySelector(".winLoss")
 
@@ -47,14 +49,14 @@ board.forEach((element) => {
   } else {
     pixel.classList.add("feed")
   }
-
   squares.push(pixel)
 })
 
 // pac and pinky initial
 squares[pacIndex].classList.add("pac")
 squares[pinkyIndex].classList.add("pinky")
-let exit = squares[299].classList.add("exit")
+squares[blinkyIndex].classList.add("blinky")
+const exit = squares[299].classList.add("exit")
 
 
 // geeks for geeks https://www.geeksforgeeks.org/javascript/javascript-detecting-the-pressed-arrow-key/
@@ -99,6 +101,14 @@ const checkWall = (whoCalled) => {
       } else {
         isWall = false
       }
+      break
+    case "blinky":
+      if (squares[blinkyNew].classList.contains("wall")) {
+        isWall = true
+        return
+      } else {
+        isWall = false
+      }
   }
 }
 
@@ -133,7 +143,7 @@ const scoreAdd = () => {
 let squareClass = squares[pacIndex].classList
 
 const checkAlive = () => {
-  if (squareClass.contains("pinky")) {
+  if (squareClass.contains("pinky") || squareClass.contains("blinky")) {
     alive = false
     winStatement.style.visibility = "visible"
     clearInterval(pacAuto)
@@ -154,22 +164,19 @@ const autoMove = () => {
   checkAlive()
   checkWin()
   if (alive) {
-    switch (true) {
-      case squareClass.contains("pacDown"):
-        moveDown()
-        break
-      case squareClass.contains("pac"):
-        moveRight()
-        break
-      case squareClass.contains("pacLeft"):
-        moveLeft()
-        break
-      case squareClass.contains("pacUp"):
-        moveUp()
-        break
+      if(squareClass.contains("pacDown")){
+      moveDown()
+      }else if (squareClass.contains("pac")){
+      moveRight()
+      }else if (squareClass.contains("pacLeft")){
+      moveLeft()
+      }else if(squareClass.contains("pacUp")){
+      moveUp()
+      }
+
     }
   }
-}
+
 
 const moveUp = () => {
   newIndex = pacIndex - 20
@@ -255,8 +262,8 @@ let movement = Math.round(Math.random() * 3)
 const pinkyMove = () => {
   checkAlive()
   // get only 4 values
-
-  switch (movement) {
+  if(alive){
+    switch (movement) {
     case 0:
       pinkyRight()
       break
@@ -270,11 +277,63 @@ const pinkyMove = () => {
       pinkyUp()
       break
   }
+  }
+
   // it just stops here doesn't go right???
   if(pinkyIndex === 343){
     pinkyRight()
   }
 }
+
+// Blinky ghost
+const blinkyUp = () => {
+  blinkyNew = blinkyIndex - 20
+  checkWall("blinky")
+  if (!isWall) {
+    squares[blinkyNew].classList.add("blinky")
+    squares[blinkyIndex].classList.remove("blinky")
+    blinkyIndex = blinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
+  }
+}
+const blinkyDown = () => {
+  blinkyNew = blinkyIndex + 20
+  checkWall("blinky")
+  if (!isWall) {
+    squares[blinkyNew].classList.add("blinky")
+    squares[blinkyIndex].classList.remove("blinky")
+    blinkyIndex = blinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
+  }
+}
+const blinkyRight = () => {
+  blinkyNew = blinkyIndex + 1
+  checkWall("blinky")
+  if (!isWall) {
+    squares[blinkyNew].classList.add("blinky")
+    squares[blinkyIndex].classList.remove("blinky")
+    blinkyIndex = blinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
+  }
+}
+const blinkyLeft = () => {
+  blinkyNew = blinkyIndex - 1
+  checkWall("blinky")
+  if (!isWall) {
+    squares[blinkyNew].classList.add("blinky")
+    squares[blinkyIndex].classList.remove("blinky")
+    blinkyIndex = blinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
+  }
+}
+
+// Move blinky automatically
+
+
 
 
 

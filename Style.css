@@ -118,6 +118,12 @@ h2 {
   background-position: center;
 }
 
+.blinky{
+  background-image: url("Images/blinky.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
 .winLoss{
   visibility: hidden;
 }
