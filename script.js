@@ -10,7 +10,7 @@ board = [
   0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0,
   0, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0, 0, 0, 2, 0, 0, 2,
   2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
-  2, 2, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0,
+  2, 2, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2,
   2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2,
   0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2, 2, 0, 2, 0,
   0, 2, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0,
@@ -44,7 +44,7 @@ board.forEach((element) => {
   document.querySelector(".zone").appendChild(pixel)
   if (element) {
     pixel.classList.add("wall")
-  } else  {
+  } else {
     pixel.classList.add("feed")
   }
 
@@ -54,6 +54,8 @@ board.forEach((element) => {
 // pac and pinky initial
 squares[pacIndex].classList.add("pac")
 squares[pinkyIndex].classList.add("pinky")
+let exit = squares[299].classList.add("exit")
+
 
 // geeks for geeks https://www.geeksforgeeks.org/javascript/javascript-detecting-the-pressed-arrow-key/
 
@@ -76,11 +78,6 @@ document.addEventListener("keydown", (keyPress) => {
     case "ArrowLeft":
       moveLeft()
       break
-  }
-
-  // pac wins at 300
-  if (newIndex == 299) {
-    console.log("You won!")
   }
 })
 
@@ -106,28 +103,28 @@ const checkWall = (whoCalled) => {
 }
 
 const pacMove = () => {
-
-    checkWall("pac")
-  if (!isWall) {
-    if (squares[pacIndex].classList.contains("feed")) {
-      scoreAdd()
-    }
-    squares[pacIndex].classList.remove(
-      "feed",
-      "pac",
-      "pacLeft",
-      "pacDown",
-      "pacUp"
-    )
-    pacIndex = newIndex
-    squareClass = squares[pacIndex].classList
-
+  checkAlive()
+  checkWin()
+  if (!alive) {
     return
-
+  }else {
+    checkWall("pac")
+    if (!isWall) {
+      if (squareClass.contains("feed")) {
+        scoreAdd()
+      }
+      squareClass.remove(
+        "feed",
+        "pac",
+        "pacLeft",
+        "pacDown",
+        "pacUp"
+      )
+      pacIndex = newIndex
+      squareClass = squares[pacIndex].classList
+    }
   }
-  }
-
-
+}
 
 const scoreAdd = () => {
   score.innerText = Number(score.innerText) + 10
@@ -135,46 +132,49 @@ const scoreAdd = () => {
 
 let squareClass = squares[pacIndex].classList
 
-squares[140].classList.add("hi")
+const checkAlive = () => {
+  if (squareClass.contains("pinky")) {
+    alive = false
+    winStatement.style.visibility = "visible"
+    clearInterval(pacAuto)
+    clearInterval(pinkyAuto)
+  }
+}
+const checkWin = () => {
+  if (squareClass.contains("exit")) {
+    winStatement.innerText = "You Win!!!"
+    winStatement.style.visibility = "visible"
+    alive = false
+    clearInterval(pacAuto)
+    clearInterval(pinkyAuto)
+  }
+}
 
 const autoMove = () => {
-
-  if (squareClass.contains("pinky")){
-      alive = false
-      winStatement.style.visibility = "visible"
+  checkAlive()
+  checkWin()
+  if (alive) {
+    switch (true) {
+      case squareClass.contains("pacDown"):
+        moveDown()
+        break
+      case squareClass.contains("pac"):
+        moveRight()
+        break
+      case squareClass.contains("pacLeft"):
+        moveLeft()
+        break
+      case squareClass.contains("pacUp"):
+        moveUp()
+        break
     }
-
-    if(alive){
-      switch (true) {
-    case squareClass.contains("pacDown"):
-      moveDown()
-      break
-    case squareClass.contains("pac"):
-      moveRight()
-      break
-    case squareClass.contains("pacLeft"):
-      moveLeft()
-      break
-    case squareClass.contains("pacUp"):
-      moveUp()
-      break
   }
-    }
-
-  if (!alive){
-  clearInterval(pacAuto)
-
 }
-
-}
-
-
-
 
 const moveUp = () => {
   newIndex = pacIndex - 20
   pacMove()
-  if (!isWall) {
+  if (!isWall && alive) {
     squares[newIndex].classList.add("pacUp")
   }
 }
@@ -182,7 +182,7 @@ const moveUp = () => {
 const moveRight = () => {
   newIndex = pacIndex + 1
   pacMove()
-  if (!isWall) {
+  if (!isWall && alive) {
     squares[newIndex].classList.add("pac")
   }
 }
@@ -190,7 +190,7 @@ const moveRight = () => {
 const moveLeft = () => {
   newIndex = pacIndex - 1
   pacMove()
-  if (!isWall) {
+  if (!isWall && alive) {
     squares[newIndex].classList.add("pacLeft")
   }
 }
@@ -198,7 +198,7 @@ const moveLeft = () => {
 const moveDown = () => {
   newIndex = pacIndex + 20
   pacMove()
-  if (!isWall) {
+  if (!isWall && alive) {
     squares[newIndex].classList.add("pacDown")
   }
 }
@@ -212,6 +212,8 @@ const pinkyUp = () => {
     squares[pinkyNew].classList.add("pinky")
     squares[pinkyIndex].classList.remove("pinky")
     pinkyIndex = pinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
   }
 }
 const pinkyDown = () => {
@@ -221,6 +223,8 @@ const pinkyDown = () => {
     squares[pinkyNew].classList.add("pinky")
     squares[pinkyIndex].classList.remove("pinky")
     pinkyIndex = pinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
   }
 }
 const pinkyRight = () => {
@@ -230,6 +234,8 @@ const pinkyRight = () => {
     squares[pinkyNew].classList.add("pinky")
     squares[pinkyIndex].classList.remove("pinky")
     pinkyIndex = pinkyNew
+  } else {
+    movement = Math.round(Math.random() * 3)
   }
 }
 const pinkyLeft = () => {
@@ -239,22 +245,41 @@ const pinkyLeft = () => {
     squares[pinkyNew].classList.add("pinky")
     squares[pinkyIndex].classList.remove("pinky")
     pinkyIndex = pinkyNew
-
+  } else {
+    movement = Math.round(Math.random() * 3)
   }
 }
 
-const pinkyMove = () => {
-  let movement = Math.random()
-  console.log(movement)
-}
-pinkyMove()
+let movement = Math.round(Math.random() * 3)
 
+const pinkyMove = () => {
+  checkAlive()
+  // get only 4 values
+
+  switch (movement) {
+    case 0:
+      pinkyRight()
+      break
+    case 1:
+      pinkyLeft()
+      break
+    case 2:
+      pinkyDown()
+      break
+    case 3:
+      pinkyUp()
+      break
+  }
+  // it just stops here doesn't go right???
+  if(pinkyIndex === 343){
+    pinkyRight()
+  }
+}
 
 
 
 // Game movements
 let pacAuto = setInterval(autoMove, 300)
+let pinkyAuto = setInterval(pinkyMove, 200)
 
 
-
-setInterval(pinkyLeft, 500)

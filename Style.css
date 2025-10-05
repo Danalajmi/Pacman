@@ -1,16 +1,40 @@
 body {
   background-color: black;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .screen {
   display: flex;
   justify-content: space-between;
   margin: 100px;
+}
+
+img[alt = "pacLogo"]{
+  width: 500px;
+  align-items: center;
+  display: block;
+  margin: auto;
+}
+a{
+  font-size: 50px;
+  color: aliceblue;
+  width: 200px;
+  text-decoration: none;
+  border: 3px dashed aliceblue;
+  padding: 15px 20px;
+  border-radius: 10px;
+  align-items: center;
+  margin: auto;
+
 
 }
 
+.start{
+  text-align: center;
+  padding: 100px;
+}
+
 img {
-  max-width: 300px;
+  width: 300px;
   height: auto;
   object-fit: contain;
   padding: 10px;
@@ -97,3 +121,4 @@ h2 {
 .winLoss{
   visibility: hidden;
 }
+
