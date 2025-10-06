@@ -1,23 +1,25 @@
 // board array
 //Tiled
-board = [
-  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0,
-  0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 2, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0,
-  0, 0, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0,
-  0, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 2, 2, 0, 0, 0, 2, 0, 0, 2,
-  2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
-  2, 2, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2,
-  2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2,
-  0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2, 2, 0, 2, 0,
-  0, 2, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0,
-  0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 0, 0,
-  2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-  2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-]
+board = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+            2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+            2, 0, 0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2,
+            2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
+            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2,
+            2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 2,
+            0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+            2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 0, 2,
+            2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 2,
+            2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+            2, 0, 2, 2, 2, 0, 0, 1, 1, 0, 2, 0, 0, 2, 2, 2, 0, 2, 0, 2,
+            2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 0, 2, 0, 0, 0, 2,
+            2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2,
+            2, 0, 2, 0, 2, 2, 0, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+            2, 0, 2, 0, 0, 0, 0, 2, 2, 0, 2, 0, 1, 2, 0, 0, 2, 2, 2, 2,
+            2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2,
+            2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2,
+            2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2,
+            2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 
 // wall is 2
 // empty is 0
@@ -148,6 +150,7 @@ const checkAlive = () => {
     winStatement.style.visibility = "visible"
     clearInterval(pacAuto)
     clearInterval(pinkyAuto)
+    clearInterval(blinkyAuto)
   }
 }
 const checkWin = () => {
@@ -157,9 +160,41 @@ const checkWin = () => {
     alive = false
     clearInterval(pacAuto)
     clearInterval(pinkyAuto)
+    clearInterval(blinkyAuto)
   }
 }
 
+
+const moveUp = () => {
+  newIndex = pacIndex - 20
+  pacMove()
+  if (!isWall && alive) {
+    squares[newIndex].classList.add("pacUp")
+  }
+}
+const moveRight = () => {
+  newIndex = pacIndex + 1
+  pacMove()
+  if (!isWall && alive) {
+    squares[newIndex].classList.add("pac")
+  }
+}
+const moveLeft = () => {
+  newIndex = pacIndex - 1
+  pacMove()
+  if (!isWall && alive) {
+    squares[newIndex].classList.add("pacLeft")
+  }
+}
+const moveDown = () => {
+  newIndex = pacIndex + 20
+  pacMove()
+  if (!isWall && alive) {
+    squares[newIndex].classList.add("pacDown")
+  }
+}
+
+// Pac automove
 const autoMove = () => {
   checkAlive()
   checkWin()
@@ -173,45 +208,14 @@ const autoMove = () => {
       }else if(squareClass.contains("pacUp")){
       moveUp()
       }
-
     }
   }
 
 
-const moveUp = () => {
-  newIndex = pacIndex - 20
-  pacMove()
-  if (!isWall && alive) {
-    squares[newIndex].classList.add("pacUp")
-  }
-}
-
-const moveRight = () => {
-  newIndex = pacIndex + 1
-  pacMove()
-  if (!isWall && alive) {
-    squares[newIndex].classList.add("pac")
-  }
-}
-
-const moveLeft = () => {
-  newIndex = pacIndex - 1
-  pacMove()
-  if (!isWall && alive) {
-    squares[newIndex].classList.add("pacLeft")
-  }
-}
-
-const moveDown = () => {
-  newIndex = pacIndex + 20
-  pacMove()
-  if (!isWall && alive) {
-    squares[newIndex].classList.add("pacDown")
-  }
-}
-
 //ghosts
 
+
+// Pinky movement
 const pinkyUp = () => {
   pinkyNew = pinkyIndex - 20
   checkWall("pinky")
@@ -257,32 +261,54 @@ const pinkyLeft = () => {
   }
 }
 
+// get only 4 values
 let movement = Math.round(Math.random() * 3)
+let recentMove = [4,4,4]
+let see = recentMove.length - 1
 
 const pinkyMove = () => {
   checkAlive()
-  // get only 4 values
   if(alive){
     switch (movement) {
     case 0:
-      pinkyRight()
+      if(recentMove[see] === "0"){
+        return
+      }else{
+        pinkyRight()
+      recentMove.push("0")
       break
-    case 1:
+      }
+      case 1:
+        if(recentMove[see] === "1"){
+        return
+      }else{
       pinkyLeft()
+      recentMove.push("1")
       break
+      }
     case 2:
+      if(recentMove[see] === "2"){
+        return
+      }else{
       pinkyDown()
+      recentMove.push("2")
       break
+      }
     case 3:
+      if(recentMove[see] === "3"){
+        return
+      }else{
       pinkyUp()
+      recentMove.push("3")
       break
+      }
   }
   }
 
   // it just stops here doesn't go right???
-  if(pinkyIndex === 343){
-    pinkyRight()
-  }
+  // if(pinkyIndex === 343){
+  //   pinkyRight()
+  // }
 }
 
 // Blinky ghost
@@ -332,13 +358,59 @@ const blinkyLeft = () => {
 }
 
 // Move blinky automatically
+blinkyRecent = [4,4,4]
+let check = blinkyRecent.length - 2
 
-
-
-
+const blinkyMove = () => {
+  checkAlive()
+  if(alive){
+    switch (movement) {
+    case 0:
+      if(blinkyRecent[check] === 0){
+        Math.round(Math.random() * 3)
+        return
+      }else{
+        blinkyRight()
+      blinkyRecent.push(0)
+      check++
+      break
+      }
+      case 1:
+        if(blinkyRecent[check] === 1){
+        Math.round(Math.random() * 3)
+        return
+      }else{
+      blinkyLeft()
+      blinkyRecent.push(1)
+      check++
+      break
+      }
+    case 2:
+      if(blinkyRecent[check] === 2){
+        Math.round(Math.random() * 3)
+        return
+      }else{
+      blinkyDown()
+      blinkyRecent.push(2)
+      check++
+      break
+      }
+    case 3:
+      if(blinkyRecent[check] === 3){
+        Math.round(Math.random() * 3)
+        return
+      }else{
+      blinkyUp()
+      blinkyRecent.push(3)
+      check++
+      break
+      }
+  }
+  }
+}
 
 // Game movements
 let pacAuto = setInterval(autoMove, 300)
-let pinkyAuto = setInterval(pinkyMove, 200)
-
-
+let pinkyAuto = setInterval(pinkyMove
+, 200)
+let blinkyAuto = setInterval(blinkyMove, 100)
