@@ -36,6 +36,7 @@ let pinkyNew
 let blinkyIndex = 311
 let blinkyNew
 let alive = true
+let ateAll = false
 let winStatement = document.body.querySelector(".winLoss")
 
 // an array for the new divs
@@ -144,6 +145,14 @@ const scoreAdd = () => {
 
 let squareClass = squares[pacIndex].classList
 
+const checkAte = () => {
+  if(squares.forEach((square) => {
+    !square.classList.contains("feed")
+  })){
+    ateAll = true
+  }
+}
+
 const checkAlive = () => {
   if (squareClass.contains("pinky") || squareClass.contains("blinky")) {
     alive = false
@@ -154,7 +163,8 @@ const checkAlive = () => {
   }
 }
 const checkWin = () => {
-  if (squareClass.contains("exit")) {
+  checkAte()
+  if (squareClass.contains("exit") && ateAll) {
     winStatement.innerText = "You Win!!!"
     winStatement.style.visibility = "visible"
     alive = false
@@ -196,6 +206,7 @@ const moveDown = () => {
 
 // Pac automove
 const autoMove = () => {
+
   checkAlive()
   checkWin()
   if (alive) {
@@ -304,11 +315,6 @@ const pinkyMove = () => {
       }
   }
   }
-
-  // it just stops here doesn't go right???
-  // if(pinkyIndex === 343){
-  //   pinkyRight()
-  // }
 }
 
 // Blinky ghost
@@ -411,6 +417,5 @@ const blinkyMove = () => {
 
 // Game movements
 let pacAuto = setInterval(autoMove, 300)
-let pinkyAuto = setInterval(pinkyMove
-, 200)
+let pinkyAuto = setInterval(pinkyMove, 200)
 let blinkyAuto = setInterval(blinkyMove, 100)
